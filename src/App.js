@@ -1,59 +1,32 @@
-import React from "react";
+import React, { useState , useEffect } from "react";
 import './App.css';
 import ContactCard from './ContactCard';
 
 const App = () => {
-  const contacts = [
-    {
-      heroPic:"https://via.placeholder.com/150",
-      name: "Jenny Han",
-      email: "jenny.han@notreal.com",
-      age: 25
-    },
-    {
-      heroPic:"https://via.placeholder.com/150",
-      name: "Paul Jones",
-      email: "paul.jones@notreal.com",
-      age: 30      
-    },
-    {
-      heroPic:"https://via.placeholder.com/150",
-      name: "Peter Pan",
-      email: "peter.pan@notreal.com",
-      age: 80      
-    }
-  ];
-  
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    fetch("https://randomuser.me/api/?results=5")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setResults(data.results)
+      });
+  }, []);
+    
   return(
     <div>
-      {contacts.map((contact, index)=> {
+      {contacts.map((result, index)=> {
         return(
           <ContactCard 
             key = {index}
-            heroPic= {contact.heroPic}
-            name= {contact.name}
-            email= {contact.email} 
-            age={contact.age}/>
+            heroPic= {result.picture.large}
+            name= {result.first}
+            email= {result.email} 
+            age={result.dob.age}/>
         )
-      })}
-      {/*<ContactCard 
-      heroPic="https://via.placeholder.com/150"
-      name="Jenny Han" 
-      email="jenny.han@notreal.com" 
-      age={25}/>
-      <ContactCard
-      heroPic="https://via.placeholder.com/150"
-      name="Paul Jones" 
-      email="Paul.jones@notreal.com" 
-      age={30}/>
-      <ContactCard
-      heroPic="https://via.placeholder.com/150"
-      name="Peter Pan" 
-      email="peter.pan@notreal.com" 
-    age={80}/> */}
-    </div>
-    
+      })};      
+    </div>    
   )
 }
-
 export default App;
