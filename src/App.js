@@ -1,25 +1,59 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import ContactCard from './ContactCard';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => {
+  const contacts = [
+    {
+      heroPic:"https://via.placeholder.com/150",
+      name: "Jenny Han",
+      email: "jenny.han@notreal.com",
+      age: 25
+    },
+    {
+      heroPic:"https://via.placeholder.com/150",
+      name: "Paul Jones",
+      email: "paul.jones@notreal.com",
+      age: 30      
+    },
+    {
+      heroPic:"https://via.placeholder.com/150",
+      name: "Peter Pan",
+      email: "peter.pan@notreal.com",
+      age: 80      
+    }
+  ];
+  
+  return(
+    <div>
+      {contacts.map((contact, index)=> {
+        return(
+          <ContactCard 
+            key = {index}
+            heroPic= {contact.heroPic}
+            name= {contact.name}
+            email= {contact.email} 
+            age={contact.age}/>
+        )
+      })}
+      {/*<ContactCard 
+      heroPic="https://via.placeholder.com/150"
+      name="Jenny Han" 
+      email="jenny.han@notreal.com" 
+      age={25}/>
+      <ContactCard
+      heroPic="https://via.placeholder.com/150"
+      name="Paul Jones" 
+      email="Paul.jones@notreal.com" 
+      age={30}/>
+      <ContactCard
+      heroPic="https://via.placeholder.com/150"
+      name="Peter Pan" 
+      email="peter.pan@notreal.com" 
+    age={80}/> */}
     </div>
-  );
+    
+  )
 }
 
 export default App;
