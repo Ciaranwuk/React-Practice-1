@@ -16,12 +16,12 @@ const App = () => {
     
   return(
     <div>
-      {contacts.map((result, index)=> {
+      {results.map((result, index)=> {
         return(
           <ContactCard 
             key = {index}
             heroPic= {result.picture.large}
-            name= {result.first}
+            name= {result.name.first}
             email= {result.email} 
             age={result.dob.age}/>
         )
