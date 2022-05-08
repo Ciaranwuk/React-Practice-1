@@ -1,8 +1,10 @@
 .contact-card {
+  margin: auto;
+  margin-top: 10px;
   display: flex;
   padding: 10px;
   color: #ffffff;
-  background-color: rgb(42, 84, 104);
+  background-color: rgb(33, 102, 134);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   box-shadow: 10px 10px 25px -16px rgba(0, 0, 0, 0.75);
   border-radius: 10px;
@@ -19,4 +21,7 @@
 button {
   margin-left: 10px;
   margin-bottom: 10px;
+  background-color: lightgrey;
+  border-color: lightgrey;
+  border-radius: 5px;
 }
